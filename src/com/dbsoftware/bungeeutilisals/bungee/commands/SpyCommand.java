@@ -38,7 +38,7 @@ public class SpyCommand extends Command {
 	@Override
 	public void execute(CommandSender sender, String[] args) {
 		if(BungeeUtilisals.getInstance().getConfig().getBoolean("Bukkit-Permissions")){
-			PluginMessageChannel.sendPermissionCheckPluginMessage("hasPermission", "butilisals.spy", "spy", args, ((ProxiedPlayer)sender));
+			PluginMessageChannel.sendPermissionCheckPluginMessage("hasPermission", "butilisals.gspy", "spy", args, ((ProxiedPlayer)sender));
 			return;
 		}
 		if(sender.hasPermission("butilisals.spy") || sender.hasPermission("butilisals.*")){
