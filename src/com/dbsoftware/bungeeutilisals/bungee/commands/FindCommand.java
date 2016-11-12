@@ -5,7 +5,6 @@ import com.dbsoftware.bungeeutilisals.bungee.utils.PluginMessageChannel;
 import com.dbsoftware.bungeeutilisals.bungee.utils.Utils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
-import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
@@ -25,13 +24,13 @@ public class FindCommand extends Command {
 		if(args.length == 1){
 			ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
 			if(target == null){
-				sender.sendMessage(new TextComponent(instance.getConfig().getString("Main-messages.offline-player").replace("&", "ง")));
+				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.offline-player").replace("&", "ยง")));
 			} else {
 				String server = target.getServer().getInfo().getName();
-				sender.sendMessage(new TextComponent(instance.getConfig().getString("Main-messages.find-message").replace("&", "ง").replace("%server%", server).replace("%player%", sender.getName()).replace("%target%", target.getName())));
+				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.find-message").replace("&", "ยง").replace("%server%", server).replace("%player%", sender.getName()).replace("%target%", target.getName())));
 			}
 		} else {
-			sender.sendMessage(new TextComponent(instance.getConfig().getString("Main-messages.use-find").replace("&", "ง")));
+			sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.use-find").replace("&", "ยง")));
 		}
 	}
 
