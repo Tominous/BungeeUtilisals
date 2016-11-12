@@ -1,0 +1,13 @@
+TODO:
+- Command API, CommandAPI.registerCommand(new AlertCommand());
+AlertCommand extends DBCommand
+In registerCommand:
+command.register();
+
+In pluginmessagelistener:
+for(DBCommand cmd : CommandAPI.values()){
+    if(cmd.getName().equals(command)){
+        cmd.onExecute(sender, args);
+        break;
+    }
+}
