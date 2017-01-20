@@ -37,7 +37,7 @@ public class PunishmentAlertListener implements Listener {
 	
 	@EventHandler
 	public void onKick(KickEvent event){
-		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.Tempban");
+		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.Kick");
 		
 		for(BungeeUser user : BungeeUtilisals.getInstance().getStaff()){
 			for(String message : staffalert){
@@ -48,7 +48,7 @@ public class PunishmentAlertListener implements Listener {
 	
 	@EventHandler
 	public void onIPBan(IPBanEvent event){
-		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.Tempban");
+		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.IPBan");
 		
 		for(BungeeUser user : BungeeUtilisals.getInstance().getStaff()){
 			for(String message : staffalert){
@@ -76,7 +76,7 @@ public class PunishmentAlertListener implements Listener {
 	
 	@EventHandler
 	public void onWarn(WarnEvent event){
-		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.Tempban");
+		List<String> staffalert = Punishments.punishments.getFile().getStringList("StaffAlert.Warn");
 		
 		for(BungeeUser user : BungeeUtilisals.getInstance().getStaff()){
 			for(String message : staffalert){

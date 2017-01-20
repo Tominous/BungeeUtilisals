@@ -22,11 +22,6 @@ public class FriendJoin implements Listener {
 		   public void FriendJoining(PostLoginEvent event){
 		     ProxiedPlayer p = event.getPlayer();
 		     
-			 List<String> requests = FriendsAPI.getFriendRequests(p.getName());
-		     if(requests.size() != 0){
-		    	 p.sendMessage(Utils.format(Friends.friends.getFile().getString("Friends.Messages.RequestJoinMessage", "").replace("&", "§").replace("%requests%", requests.size() + "")));
-		     }
-		     
 		     Iterator<ProxiedPlayer> i = ProxyServer.getInstance().getPlayers().iterator();
 		     while(i.hasNext()){
 			     ProxiedPlayer player = i.next();

@@ -24,13 +24,13 @@ public class FindCommand extends Command {
 		if(args.length == 1){
 			ProxiedPlayer target = ProxyServer.getInstance().getPlayer(args[0]);
 			if(target == null){
-				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.offline-player").replace("&", "ยง")));
+				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.offline-player").replace("&", "ง")));
 			} else {
 				String server = target.getServer().getInfo().getName();
-				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.find-message").replace("&", "ยง").replace("%server%", server).replace("%player%", sender.getName()).replace("%target%", target.getName())));
+				sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.find-message").replace("&", "ง").replace("%server%", server).replace("%player%", sender.getName()).replace("%target%", target.getName())));
 			}
 		} else {
-			sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.use-find").replace("&", "ยง")));
+			sender.sendMessage(Utils.format(instance.getConfig().getString("Main-messages.use-find").replace("&", "ง")));
 		}
 	}
 

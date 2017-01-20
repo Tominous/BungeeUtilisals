@@ -10,7 +10,6 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
@@ -30,7 +29,7 @@ public class BigalertCommand extends Command {
 					
 					if(BungeeUtilisals.getInstance().getConfig().getBoolean("BigAlert.Chat.Enabled")){
 						for (ProxiedPlayer p : ProxyServer.getInstance().getPlayers()) {
-							p.sendMessage(new TextComponent(prefix + ChatColor.translateAlternateColorCodes('&', message.replace("%p%", p.getName()).replaceAll("%n", " "))));
+							p.sendMessage(Utils.format(prefix + ChatColor.translateAlternateColorCodes('&', message.replace("%p%", p.getName()).replaceAll("%n", " "))));
 						}
 					}
 					if(BungeeUtilisals.getInstance().getConfig().getBoolean("BigAlert.ActionBar.Enabled")){
@@ -86,7 +85,7 @@ public class BigalertCommand extends Command {
 			
 			if(BungeeUtilisals.getInstance().getConfig().getBoolean("BigAlert.Chat.Enabled")){
 				for (ProxiedPlayer p : ProxyServer.getInstance().getPlayers()) {
-					p.sendMessage(new TextComponent(prefix + ChatColor.translateAlternateColorCodes('&', msg.replace("%p%", p.getName()).replaceAll("%n", " "))));
+					p.sendMessage(Utils.format(prefix + ChatColor.translateAlternateColorCodes('&', msg.replace("%p%", p.getName()).replaceAll("%n", " "))));
 				}
 			}
 			if(BungeeUtilisals.getInstance().getConfig().getBoolean("BigAlert.ActionBar.Enabled")){

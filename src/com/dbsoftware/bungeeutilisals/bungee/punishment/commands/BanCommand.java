@@ -32,6 +32,8 @@ public class BanCommand extends Command {
 			}
 			return;
 		}
+		
+		
 		UUID uuid = UUIDFetcher.getUUIDOf(args[0]);
 		if(uuid == null){
 			return;

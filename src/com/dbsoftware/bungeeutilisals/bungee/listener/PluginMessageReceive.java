@@ -24,7 +24,6 @@ import com.dbsoftware.bungeeutilisals.bungee.commands.SpyCommand;
 import com.dbsoftware.bungeeutilisals.bungee.commands.StoreCommand;
 import com.dbsoftware.bungeeutilisals.bungee.commands.VoteCommand;
 import com.dbsoftware.bungeeutilisals.bungee.friends.FriendsCommand;
-import com.dbsoftware.bungeeutilisals.bungee.party.PartyCommand;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.BanCommand;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.BanIPCommand;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.BanInfoCommand;
@@ -35,8 +34,6 @@ import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.TempmuteCommand
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.UnbanCommand;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.UnmuteCommand;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.commands.WarnCommand;
-import com.dbsoftware.bungeeutilisals.bungee.report.ReportCommand;
-import com.dbsoftware.bungeeutilisals.bungee.report.ReportListCommand;
 import com.dbsoftware.bungeeutilisals.bungee.staffchat.StaffChatCommand;
 import com.dbsoftware.bungeeutilisals.bungee.utils.Utils;
 
@@ -96,7 +93,7 @@ public class PluginMessageReceive implements Listener {
 					} if(command.equals("bigalert")){
 						BigalertCommand.executeBigalertCommand(sender, args);
 						return;
-					} if(command.equals("butilisals")){
+					} if(command.equals("cubedcraft")){
 						ButilisalsCommand.executeButilisalsCommand(sender, args);
 						return;
 					} if(command.equals("clearchat")){
@@ -122,22 +119,6 @@ public class PluginMessageReceive implements Listener {
 						return;
 					} if(command.equals("vote")){
 						VoteCommand.executeVoteCommand(sender, args);
-						return;
-					} if(command.equals("report")){
-						if(args.length >= 1 && args[0].contains("toggle")){
-							ReportCommand.executeReportToggleCommand(sender, args);
-							return;
-						} if(args.length >= 1 && args[0].contains("remove") || args[0].contains("delete")){
-							ReportCommand.executeReportDeleteCommand(sender, args);
-							return;
-						}
-						ReportCommand.executeReportCommand(sender, args);
-						return;
-					} if(command.equals("reportlist")){
-						ReportListCommand.executeReportListCommand(sender, args);
-						return;
-					} if(command.equals("party")){
-						PartyCommand.executePartyCommand(sender, args);
 						return;
 					} if(command.equals("friend")){
 						FriendsCommand.executeFriendCommand(sender, args);

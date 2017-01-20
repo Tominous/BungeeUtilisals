@@ -62,20 +62,8 @@ public class Announcer {
             Announcements.announcements.getFile().set("Announcements.Global.Enabled", true);
             Announcements.announcements.getFile().set( "Announcements.Global.Interval", 150 );
             List<String> l = new ArrayList<String>();
-            l.add( "&a&lWelcome to our network!" );
-            l.add( "&aThis server is using BungeeUtilisals." );
-            l.add( "&aDon't forget to take a little look at our website!" );
+            l.add( "&a&lWelcome to CubedCraft network!" );
             Announcements.announcements.getFile().set( "Announcements.Global.Messages", l );
-        }
-        for ( String server : proxy.getServers().keySet() ) {
-            if ( !check.contains( server ) ) {
-                Announcements.announcements.getFile().set("Announcements." + server + ".Enabled", false);
-                Announcements.announcements.getFile().set( "Announcements." + server + ".Interval", 75 );
-                List<String> l = new ArrayList<String>();
-                l.add( "&aHello Everyone, &eWelcome to the &a" + server + " &eserver!" );
-                l.add( "&aThis server is using BungeeUtilisals!" );
-                Announcements.announcements.getFile().set( "Announcements." + server + ".Messages", l );
-            }
         }
         Announcements.announcements.save();
     }

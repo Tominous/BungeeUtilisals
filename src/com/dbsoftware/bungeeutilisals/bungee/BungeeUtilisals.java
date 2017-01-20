@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import com.dbsoftware.bungeeutilisals.bungee.actionbarannouncer.ActionBarAnnouncer;
 import com.dbsoftware.bungeeutilisals.bungee.announcer.Announcer;
 import com.dbsoftware.bungeeutilisals.bungee.commands.AlertCommand;
 import com.dbsoftware.bungeeutilisals.bungee.commands.BgcCommand;
@@ -45,16 +43,9 @@ import com.dbsoftware.bungeeutilisals.bungee.listener.LoginEvent;
 import com.dbsoftware.bungeeutilisals.bungee.listener.MessageLimiter;
 import com.dbsoftware.bungeeutilisals.bungee.listener.PluginMessageReceive;
 import com.dbsoftware.bungeeutilisals.bungee.listener.PrivateMessageListener;
-import com.dbsoftware.bungeeutilisals.bungee.listener.ServerSwitch;
 import com.dbsoftware.bungeeutilisals.bungee.managers.DatabaseManager;
-import com.dbsoftware.bungeeutilisals.bungee.metrics.Metrics;
-import com.dbsoftware.bungeeutilisals.bungee.party.Party;
 import com.dbsoftware.bungeeutilisals.bungee.punishment.Punishments;
-import com.dbsoftware.bungeeutilisals.bungee.report.Reports;
 import com.dbsoftware.bungeeutilisals.bungee.staffchat.StaffChat;
-import com.dbsoftware.bungeeutilisals.bungee.tabmanager.TabManager;
-import com.dbsoftware.bungeeutilisals.bungee.titleannouncer.TitleAnnouncer;
-import com.dbsoftware.bungeeutilisals.bungee.updater.UpdateChecker;
 import com.dbsoftware.bungeeutilisals.bungee.utils.MySQL;
 import com.dbsoftware.bungeeutilisals.bungee.utils.TPSRunnable;
 import com.google.common.collect.Lists;
@@ -98,25 +89,9 @@ public class BungeeUtilisals extends Plugin {
 	    loadCommands();
 	    registerEvents();
 	    Announcer.loadAnnouncements();
-	    TitleAnnouncer.loadAnnouncements();
-	    ActionBarAnnouncer.loadAnnouncements();
 	    StaffChat.registerStaffChat();
 		
 	    ProxyServer.getInstance().getScheduler().schedule(BungeeUtilisals.getInstance(), new TPSRunnable(), 50, TimeUnit.MILLISECONDS);
-	    	    
-	    if(this.getConfigData().UPDATECHECKER){
-	    	UpdateChecker.checkUpdate(instance.getDescription().getVersion());
-	    	UpdateRunnable();
-	    }
-	    
-	    try {
-	        Metrics metrics = new Metrics(this);
-	        metrics.start();
-	    } catch (IOException e) {
-	        ProxyServer.getInstance().getLogger().info("[BungeeUtilisals] Metrics could not be enabled.");
-	    }
-	    
-	    Party.registerPartySystem();
 	    
 	    if(getConfig().getBoolean("MySQL.Enabled")){
 	    	String host = getConfig().getString("MySQL.Host", "localhost");
@@ -136,7 +111,6 @@ public class BungeeUtilisals extends Plugin {
 				
 			}, 5, 5, TimeUnit.MINUTES);				
 		    Friends.registerFriendsAddons();
-		    Reports.registerReportSystem();
 			Punishments.registerPunishmentSystem();
 			BungeeCord.getInstance().getPluginManager().registerCommand(this, new GRankCommand());
 			
@@ -159,10 +133,7 @@ public class BungeeUtilisals extends Plugin {
 			};
 			BungeeCord.getInstance().getScheduler().schedule(this, r, 0, 1, TimeUnit.MINUTES);
 	    }
-	    
-	    TabManager.loadTab();
-	    
-	    
+
 	    ProxyServer.getInstance().getLogger().info("BungeeUtilisals is now Enabled!");
 	}
 	
@@ -269,14 +240,6 @@ public class BungeeUtilisals extends Plugin {
 	    }
 	}
 	
-	private void UpdateRunnable(){
-	    ProxyServer.getInstance().getScheduler().schedule(instance, new Runnable(){
-			public void run() {
-				UpdateChecker.checkUpdate(instance.getDescription().getVersion());
-			}
-	    }, 15, 15, TimeUnit.MINUTES);
-	}
-	
 	private void registerEvents(){
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new MessageLimiter(this));
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new DisconnectEvent());
@@ -287,7 +250,6 @@ public class BungeeUtilisals extends Plugin {
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new AntiSwear());
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new AntiCaps(this));
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new AntiAd(this));
-	    ProxyServer.getInstance().getPluginManager().registerListener(this, new ServerSwitch(this));
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new PluginMessageReceive());
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new JoinListener());
 	    ProxyServer.getInstance().getPluginManager().registerListener(this, new PrivateMessageListener());
