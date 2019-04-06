@@ -21,10 +21,10 @@
 # Do you want to store the players with their UUID or name? To have name storage, set to false, to use UUID storage, set on true.
 # UUID Storage is highly recommended for premium servers, because of name changes.
 # Name storage is recommended for cracked servers.
-UUID-Storage: false
+UUID-Storage: true
 
 # This is the Prefix, for the most messages & alert prefix!
-Prefix: '&e&lBungeeUtilisals &8» &r'
+Prefix: '&e&lBungeeUtilisals &8Â» &r'
 
 # This is a system that allows you to connect to the Bukkit server you are in to ask if you have the permission!
 Bukkit-Permissions: false
@@ -106,8 +106,8 @@ PrivateMessages:
       WrongUsage: '&4Please use /gmsg (player) (message)!'
       OfflineTarget: '&4That player is not online!'
       Format:
-        Receiving: '&8[&6%player% &c» &6Me&8] &r%message%'
-        Sending: '&8[&6Me &c» &6%player%&8] &r%message%'
+        Receiving: '&8[&6%player% &cÂ» &6Me&8] &r%message%'
+        Sending: '&8[&6Me &cÂ» &6%player%&8] &r%message%'
   Reply:
     Aliases:
     - gr
@@ -116,8 +116,8 @@ PrivateMessages:
       NoTarget: '&4You have nobody to reply to!'
       OfflineTarget: '&4That player is not online anymore!'
       Format:
-        Receiving: '&8[&6%player% &c» &6Me&8] &r%message%'
-        Sending: '&8[&6Me &c» &6%player%&8] &r%message%'
+        Receiving: '&8[&6%player% &cÂ» &6Me&8] &r%message%'
+        Sending: '&8[&6Me &cÂ» &6%player%&8] &r%message%'
   Spy:
     Aliases:
     - gsocialspy
@@ -125,7 +125,7 @@ PrivateMessages:
       WrongUsage: '&4Please use /gspy!'
       Enabled: '&6Your socialspy has been &benabled&6!'
       Disabled: '&6Your socialspy has been &bdisabled&6!'
-      Format: '&8[&6%sender% &c» &6%receiver%&8] &r%message%'
+      Format: '&8[&6%sender% &cÂ» &6%receiver%&8] &r%message%'
 
 # This is the format of the StaffChat command.
 StaffChat:
@@ -161,7 +161,7 @@ ChatLock:
 
 # Hub Command Section
 Hub:
-  Enabled: false
+  Enabled: true
   # The Server in the BungeeCord Config!
   Server: Hub
   # The Custom Command.
@@ -255,13 +255,13 @@ ChatOptions:
     enabled: true
     message: '&cYou cannot use unicode letters!'
     replace:
-      # For example: 'Å' is the letter that has to be replaced by 'A'
-      'Å': 'A'
-      'Ä': 'A'
-      'Ö': 'O'
-      'å': 'a'
-      'ä': 'a'
-      'ö': 'o'
+      # For example: 'Ã…' is the letter that has to be replaced by 'A'
+      'Ã…': 'A'
+      'Ã„': 'A'
+      'Ã–': 'O'
+      'Ã¥': 'a'
+      'Ã¤': 'a'
+      'Ã¶': 'o'
 GList:
   Enabled: true
   # This is the Format for the /glist command!
@@ -273,7 +273,7 @@ GList:
 
   # This is the Format for the Total Players in the server!
   # Example: There are 2 players online now! (Default one ;))
-  Total: '&6There are &b%totalnum% &6players online now!'
+  Total: '&6There are &b&l%totalnum% &r&6players online now!'
 
   # This is the section for the custom /glist.
   # If you have like 10 SG servers, and you don't want them in your /glist?
@@ -297,7 +297,7 @@ AntiSwear:
   # Setting the Advanced option to false, won't block that much.
   # Like you have blocked the word "ass". Setting advanced to true, should block things like
   # Compass too, advanced to false won't block this!
-  Advanced: false
+  Advanced: true
   # Message that will be sent on swear. To ignore, set no people to staff or set it to:
   # StaffMessage:
   StaffMessage:
@@ -324,7 +324,7 @@ AntiCaps:
 # This could be buggy!
 AntiSpam:
   # You can enable // disable antispam here!
-  Enabled: false
+  Enabled: true
   # How many seconds does players need to wait before they can talk again?
   # This is in SECONDS!
   Seconds: 2
@@ -333,7 +333,7 @@ AntiSpam:
 # The NoRepeat part will block repeating the same messages!
 Norepeat:
   # You can enable // disable the norepeat here!
-  Enabled: false
+  Enabled: true
   Message: '&cPlease do not repeat a message!'
 
 # The MessageLimiter Part will force a max. amount of messages in X amount of time.
